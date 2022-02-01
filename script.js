@@ -5,13 +5,11 @@ const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
 
-//exibe o loading
 function loading() {
 	loader.hidden = false;
 	quoteContainer.hidden = true;
 }
 
-//esconde o loading
 function complete() {
 	if (!loader.hidden) {
 		loader.hidden = true;
@@ -19,7 +17,6 @@ function complete() {
 	}
 }
 
-//obtem a citação da API
 async function getQuote() {
 	loading();
 
@@ -52,7 +49,6 @@ async function getQuote() {
 	}
 }
 
-//envia a citação pro Tweeter
 function tweetQuote() {
 	const quote = quoteText.innerText;
 	const author = authorText.innerText;
@@ -60,9 +56,7 @@ function tweetQuote() {
 	window.open(twitterUrl, '_blank');
 }
 
-//Listeners
 newQuoteBtn.addEventListener('click', getQuote);
 twitterBtn.addEventListener('click', tweetQuote);
 
-//On load
 getQuote();
